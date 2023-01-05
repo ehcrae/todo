@@ -1,12 +1,25 @@
 // Modules to control application life and create native browser window
 const {app, BrowserWindow} = require('electron')
 const path = require('path')
+const Store = require('./store.js')
+
+const store = new Store({
+  // We'll call our data file 'user-preferences'
+  configName: 'user-preferences',
+  defaults: {
+    // 800x600 is the default size of our window
+    windowBounds: { width: 400, height: 400 }
+  }
+})
 
 function createWindow () {
   // Create the browser window.
+
+  let { width, height } = store.get('windowBounds');
+
   const mainWindow = new BrowserWindow({
-    width: 400,
-    height: 600,
+    width,
+    height,
     webPreferences: {
       preload: path.join(__dirname, 'preload.js')
     }
@@ -14,7 +27,12 @@ function createWindow () {
 
   // and load the index.html of the app.
   mainWindow.loadFile('index.html')
-
+  mainWindow.on('resize', () => {
+    // if the window is resized, let the width and height change
+    // and save it to our preferences
+    let { width, height } = mainWindow.getBounds();
+    store.set('windowBounds', { width, height });
+  })
   // Open the DevTools.
   // mainWindow.webContents.openDevTools()
 }
