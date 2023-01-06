@@ -1,5 +1,21 @@
-/* styles.css */
-.spawn {
-  padding: 2em;
-  background-color: brown;
+body {
+  font: caption;
+}
+.navbar {
+  padding: 1em;
+  display: flex;
+  justify-content: space-around;
+}
+.navbar a:hover {
+  text-decoration: none;
+}
+
+#itemList li {
+  padding: 1em;
+  list-style-type: none;
+}
+
+#itemList li:hover {
+  text-decoration: line-through;
+  
 }

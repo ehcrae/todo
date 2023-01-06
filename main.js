@@ -7,8 +7,7 @@ const store = new Store({
   // We'll call our data file 'user-preferences'
   configName: 'user-preferences',
   defaults: {
-    // 800x600 is the default size of our window
-    windowBounds: { width: 400, height: 400 }
+    windowBounds: { width: 400, height: 600 }
   }
 })
 
