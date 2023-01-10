@@ -86,5 +86,3 @@ function itemToList(itemText) {
 
 // Watch for click
 document.getElementById("createItemButton").onclick = () => createField();
-
-document.getElementById()
