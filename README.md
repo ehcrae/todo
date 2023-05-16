@@ -1,5 +1,6 @@
 # A simple to-do app
 # Overview 🏷
+![Opening todo and adding a note, changing the background colour.](example.gif)
 ## Core functionality ⚙️
 distinct 'to-do' *items* that can be:
 - [x] created
